@@ -1,9 +1,9 @@
 package com.machado.pizzaria_api;
 
-import domain.Ingredient;
-import domain.Pizza;
-import domain.Quantity;
-import domain.Recipe;
+import com.machado.pizzaria_api.domain.Ingredient;
+import com.machado.pizzaria_api.domain.Pizza;
+import com.machado.pizzaria_api.domain.Quantity;
+import com.machado.pizzaria_api.domain.Recipe;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

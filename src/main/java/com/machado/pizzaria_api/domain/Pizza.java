@@ -1,5 +1,7 @@
-package domain;
+package com.machado.pizzaria_api.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +11,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Pizza {
+    @Id
+    private Long id;
     private String name;
     private Recipe recipe;
     private String description;

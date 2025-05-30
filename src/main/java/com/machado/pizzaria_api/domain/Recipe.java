@@ -1,4 +1,4 @@
-package domain;
+package com.machado.pizzaria_api.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
