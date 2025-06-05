@@ -1,6 +1,9 @@
 package com.machado.pizzaria_api.domain;
 
 import jakarta.persistence.Id;
+
+import com.machado.pizzaria_api.enums.UnitsOfMeasurement;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
