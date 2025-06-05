@@ -6,6 +6,9 @@ import com.machado.pizzaria_api.repository.PizzaRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class PizzaService {
     private final PizzaRepository pizzaRepository;
 

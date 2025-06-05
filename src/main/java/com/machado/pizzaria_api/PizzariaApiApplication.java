@@ -2,8 +2,7 @@ package com.machado.pizzaria_api;
 
 import com.machado.pizzaria_api.domain.Ingredient;
 import com.machado.pizzaria_api.domain.Pizza;
-import com.machado.pizzaria_api.domain.Quantity;
-import com.machado.pizzaria_api.domain.Recipe;
+import com.machado.pizzaria_api.domain.PizzaIngredient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,20 +13,27 @@ public class PizzariaApiApplication {
 
 		SpringApplication.run(PizzariaApiApplication.class, args);
 
-		Ingredient calabresa = new Ingredient();
-		Ingredient queijoMussarela  = new Ingredient();
-		Ingredient molhoDeTomate = new Ingredient();
+        Ingredient calabresa = new Ingredient(null, "Calabresa");
+        Ingredient queijoMussarela = new Ingredient(null, "Queijo Mussarela");
+        Ingredient molhoDeTomate = new Ingredient(null, "Molho de Tomate");
 
-		Recipe recipeOfCalabresaPizza = new Recipe();
+        Pizza pizzaDeCalabresa = new Pizza("Calabresa", "Pizza de calabresa 8 pedaços", 50.00);
 
-		recipeOfCalabresaPizza.addIngredientToMap(new Quantity(200, "gramas"), calabresa);
-		recipeOfCalabresaPizza.addIngredientToMap(new Quantity(50, "ml"), molhoDeTomate);
-		recipeOfCalabresaPizza.addIngredientToMap(new Quantity(200, "gramas"), queijoMussarela);
+        //adicionando ingredientes com quantidade e unidade, o id está nulo pq eu deixei autogenerate.
+        PizzaIngredient ing1 = new PizzaIngredient(null, pizzaDeCalabresa, calabresa, 200, "gramas");
+        PizzaIngredient ing2 = new PizzaIngredient(null, pizzaDeCalabresa, queijoMussarela, 200, "gramas");
+        PizzaIngredient ing3 = new PizzaIngredient(null, pizzaDeCalabresa, molhoDeTomate, 50, "ml");
 
-		Pizza pizzaDeCalabresa = new Pizza("calabresa", recipeOfCalabresaPizza, "pizza de calabresa 8 pedaços", 50.00);
+        //associando a pizza aos ingredientes
+        pizzaDeCalabresa.getIngredients().add(ing1);
+        pizzaDeCalabresa.getIngredients().add(ing2);
+        pizzaDeCalabresa.getIngredients().add(ing3);
 
-		pizzaDeCalabresa.toString();
-
+        //teste
+        System.out.println(pizzaDeCalabresa.getName() + ":");
+        for (PizzaIngredient pi : pizzaDeCalabresa.getIngredients()) {
+            System.out.println("- " + pi.getAmount() + " " + pi.getUnit() + " de " + pi.getIngredient().getName());
+        }
 
 	}
 
